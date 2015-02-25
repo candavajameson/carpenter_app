@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_one :carpenter
   
+  accepts_nested_attributes_for :carpenter
 end

@@ -7,9 +7,24 @@ class CarpentersController < ApplicationController
 	end
 
 	def new
+		@user = User.new
 	end
 
 	def create
+		opts = {
+			force_random_password: true,
+			password_expires_at: nil
+		}
+
+		@user = User.new(user_params.merge(opts))
+		@user.skip_confirmation!
+
+		if @user.save
+
+		else
+			render 'new'
+		end
+
 	end
 
 	def show
@@ -26,7 +41,11 @@ class CarpentersController < ApplicationController
 		@carpenter = Carpenter.find(params[:id])
 	end
 
-	def carpenter_params
+	def set_user
+		@user = User.find(params[:id])
+	end
+
+	def user_params
 		params.require(:carpenter).permit(:name,
 										  :email,
 										  :password,
