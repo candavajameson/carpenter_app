@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :carpenter
+  has_many :recommendations
   
   accepts_nested_attributes_for :carpenter
 end
