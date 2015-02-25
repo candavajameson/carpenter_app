@@ -1,0 +1,6 @@
+%h1= @carpenter.user.name
+%h1
+
+- @carpenter.products.each do |product|
+	%p= product.title
+	%span= image_tag(product.banner_url) if product.banner?
