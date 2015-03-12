@@ -49,7 +49,11 @@ class CarpentersController < ApplicationController
 		params.require(:carpenter).permit(:name,
 										  :email,
 										  :password,
-										  :password_confirmation)
+										  :password_confirmation,
+										  carpenter_attributes: [
+										  	:name,
+										  	:description,
+										  	:address])
 	end
 
 end

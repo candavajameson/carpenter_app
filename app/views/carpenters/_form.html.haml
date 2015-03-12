@@ -1,5 +1,8 @@
-= form_for @user, html: { class: 'form-horizontal'} do |f|
+= form_for @user, url: carpenters_path, html: { class: 'form-horizontal'} do |f|
 	.row
+		.form-group
+			= f.label :name, class: 'form'
+			= f.text_field :name, class: 'form-control'
 		.form-group
 			= f.label :email, class: 'form'
 			= f.text_field :email, class: 'form-control'
@@ -9,8 +12,16 @@
 		.form-group
 			= f.label :password_confirmation, class: 'form'
 			= f.password_field :password_confirmation, class: 'form-control'
-		.form-group
-			= f.label :name, class: 'form'
-			= f.text_field :name, class: 'form-control'
+
+		= f.fields_for :carpenter, @user.build_carpenter do |carpenter_form|
+			.form-group
+				= carpenter_form.label :name, class: 'control-label'
+				= carpenter_form.text_field :name, class: 'form-control'
+			.form-group
+				= carpenter_form.label :address, class: 'control-label'
+				= carpenter_form.text_area :address, class: 'form-control'
+			.form-group
+				= carpenter_form.label :description, class: 'control-label'
+				= carpenter_form.text_area :description, class: 'form-control'
 	.form-action
 		= f.submit "Create", class: 'btn btn-large btn-success'

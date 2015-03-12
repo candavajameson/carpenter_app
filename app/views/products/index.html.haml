@@ -1,0 +1,14 @@
+%h1= "#{@products.carpenter.name} Products"
+%hr
+
+%table.table
+	%thead
+		%th Product Name
+		%th 
+	%tbody
+		- @products.each do |product|
+			%tr
+				%td= product.name
+				%td
+
+= paginate @products
