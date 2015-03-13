@@ -12,7 +12,6 @@ class CarpentersController < ApplicationController
 
 	def create
 		opts = {
-			force_random_password: true,
 			password_expires_at: nil
 		}
 

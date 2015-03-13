@@ -5,6 +5,14 @@ class UsersController < ApplicationController
 	end
 
 	def create
+		@user = User.new user_params
+		@user.skip_confirmation!
+
+		if @user.save
+			redirect_to new_user_session_path
+		else
+			render 'new'
+		end
 	end
 
 	private 

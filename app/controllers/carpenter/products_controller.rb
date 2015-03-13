@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
 	before_filter :set_product, only: [:show, :edit, :update]
 
 	def index
-		@products = @carpenter.products
 	end
 
 	def new
@@ -26,7 +25,7 @@ class ProductsController < ApplicationController
 
 	private
 	def set_carpenter
-		@carpenter = current_user.carpenter
+		@user = current_user.includes(carpenter: [:products])
 	end
 
 	def set_product
