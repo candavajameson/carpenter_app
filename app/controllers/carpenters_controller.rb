@@ -1,6 +1,6 @@
 class CarpentersController < ApplicationController
 
-	before_filter :set_carpenter, only: [:edit, :update, :show]
+	before_filter :set_carpenter, only: [:show]
 
 	def index
 		@carpenters = Carpenter.page(params[:page]).per(10)
@@ -12,11 +12,10 @@ class CarpentersController < ApplicationController
 
 	def create
 
-
 		@user = User.new(user_params)
 	
 		if @user.save
-
+			redirect_to new_user_session_path
 		else
 			render 'new'
 		end
@@ -25,12 +24,6 @@ class CarpentersController < ApplicationController
 
 	def show
 		@recommendations = @carpenter.recommendations.page(params[:page]).per(10)
-	end
-
-	def edit
-	end
-
-	def update
 	end
 
 	private

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :recommendations, only: [:create]
   end
 
-  namespace :carpenter do 
+  namespace :carpenter_admin do 
     resources :products
+    resource :profile, only: [:show, :update]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

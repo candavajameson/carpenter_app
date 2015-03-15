@@ -1,4 +1,5 @@
 = form_for @user, url: carpenters_path, html: { class: 'form-horizontal'} do |f|
+	= render 'shared/error_messages', object: f.object
 	.row
 		.form-group
 			= f.label :name, class: 'form'
