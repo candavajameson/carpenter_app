@@ -5,8 +5,8 @@
 	%p= product.title
 	%span= image_tag(product.banner_url) if product.banner?
 
-- if @carpenter.recommendations.any?
-	- @carpenter.recommendations.each do |recommendation|
+- if @recommendations.any?
+	- @recommendations.each do |recommendation|
 		= render recommendation
 
 = form_for [@carpenter, @carpenter.recommendations.build], html: { class: 'form-horizontal' } do |f|

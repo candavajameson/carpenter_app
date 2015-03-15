@@ -24,6 +24,7 @@ class CarpentersController < ApplicationController
 	end
 
 	def show
+		@recommendations = @carpenter.recommendations.page(params[:page]).per(10)
 	end
 
 	def edit

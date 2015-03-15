@@ -1,0 +1,9 @@
+%h1 Carpenter
+%hr
+
+- @carpenters.each do |carpenter|
+	%h1= link_to carpenter.user.name, carpenter_path(carpenter)
+	%h3= carpenter.name
+	%p= carpenter.address
+
+= paginate @carpenters 
