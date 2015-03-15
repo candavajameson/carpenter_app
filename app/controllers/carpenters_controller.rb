@@ -11,13 +11,10 @@ class CarpentersController < ApplicationController
 	end
 
 	def create
-		opts = {
-			password_expires_at: nil
-		}
 
-		@user = User.new(user_params.merge(opts))
-		@user.skip_confirmation!
 
+		@user = User.new(user_params)
+	
 		if @user.save
 
 		else
@@ -40,12 +37,8 @@ class CarpentersController < ApplicationController
 		@carpenter = Carpenter.find(params[:id])
 	end
 
-	def set_user
-		@user = User.find(params[:id])
-	end
-
 	def user_params
-		params.require(:carpenter).permit(:name,
+		params.require(:user).permit(:name,
 										  :email,
 										  :password,
 										  :password_confirmation,

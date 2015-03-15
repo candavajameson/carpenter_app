@@ -5,7 +5,11 @@
 	%p= product.title
 	%span= image_tag(product.banner_url) if product.banner?
 
-= form_for [@carpenter, @carpenter.build_recommendation], html: { class: 'form-horizontal' } do |f|
+- if @carpenter.recommendations.any?
+	- @carpenter.recommendations.each do |recommendation|
+		= render recommendation
+
+= form_for [@carpenter, @carpenter.recommendations.build], html: { class: 'form-horizontal' } do |f|
 	.form-group
 		= f.label :title, class: 'control-label'
 		= f.text_field :title, class: 'form-control'
