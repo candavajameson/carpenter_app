@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :carpenters do
-    resources :products
+    resources :products, only: [:index, :show]
     resources :recommendations, only: [:create]
+  end
+
+  namespace :carpenter do 
+    resources :products
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

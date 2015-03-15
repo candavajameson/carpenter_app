@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Carpenter::ProductsController < Carpenter::ApplicationController
 	
 	before_filter :set_carpenter, only: [:index]
 	before_filter :set_product, only: [:show, :edit, :update]
