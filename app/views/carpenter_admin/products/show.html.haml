@@ -1,4 +1,7 @@
-%h1= @product.name
+%h3.page-title= @product.name
+.pull-right
+	= link_to "Edit", edit_carpenter_admin_product_path(@product), class: "btn btn-success"
 %hr
 
+= image_tag @product.banner_url, alt: @product.name
 %p= @product.description

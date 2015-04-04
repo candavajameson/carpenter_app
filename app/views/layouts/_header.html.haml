@@ -7,11 +7,13 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"} Carpenter Application
+      %a.navbar-brand.title{:href => "#"} Carpenter Application
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li.active
+        %li
           %a{:href => "#"} Home
+        - if user_signed_in?
+          = render 'layouts/nav/carpenter'
         %li
           %a{:href => "#about"} About
         %li

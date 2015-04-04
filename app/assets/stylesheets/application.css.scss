@@ -19,3 +19,28 @@
 body {
 	padding-top: 57px;
 }
+
+.light {
+	color: #888888;
+}
+
+.navbar-default {
+  background: #474D57;
+  border-bottom: 1px solid #373D47;
+
+  .title {
+  	color: #fff;
+  	&:hover {
+  		text-decoration: underline;
+  		color: #fff;
+  	}
+  }
+
+  .nav > li > a {
+  	color: #fff;
+  	&:hover {
+  		text-decoration: underline;
+  		color: #fff;
+  	}
+  }
+}
