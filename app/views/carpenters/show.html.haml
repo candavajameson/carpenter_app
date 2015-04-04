@@ -1,13 +1,11 @@
-%h1= @carpenter.user.name
-%h1
+%h3.page-title= @carpenter.user.name
+%hr
 
 - @carpenter.products.each do |product|
 	%p= product.title
 	%span= image_tag(product.banner_url) if product.banner?
 
-- if @recommendations.any?
-	- @recommendations.each do |recommendation|
-		= render recommendation
+= render 'recommendations'
 
 = form_for [@carpenter, @carpenter.recommendations.build], html: { class: 'form-horizontal' } do |f|
 	.form-group
