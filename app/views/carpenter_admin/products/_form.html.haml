@@ -5,6 +5,9 @@
 	.form-group
 		= f.label :description, class: "control-label"
 		= f.text_area :description, class: "form-control"
+	.form-group
+		= f.label :banner, class: "control-label"
+		= f.file_field :banner, class: "form-control"
 
 	.form-action
 		= f.submit class: "btn btn-success"

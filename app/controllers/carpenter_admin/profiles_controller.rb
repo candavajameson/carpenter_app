@@ -1,6 +1,6 @@
 class CarpenterAdmin::ProfilesController < CarpenterAdmin::ApplicationController
 	
-	before_filter :set_carpenter
+	before_action :set_carpenter
 
 	def show
 	end

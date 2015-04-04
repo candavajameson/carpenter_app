@@ -1,6 +1,6 @@
 class RecommendationsController < ApplicationController
 
-	before_filter :set_carpenter
+	before_action :set_carpenter
 
 	def create
 		@recommendation = @carpenter.recommendations.build recommendation_params

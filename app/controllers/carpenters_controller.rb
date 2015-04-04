@@ -1,6 +1,6 @@
 class CarpentersController < ApplicationController
 
-	before_filter :set_carpenter, only: [:show]
+	before_action :set_carpenter, only: [:show]
 
 	def index
 		@carpenters = Carpenter.page(params[:page]).per(10)

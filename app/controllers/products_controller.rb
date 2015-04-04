@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-	before_filter :set_carpenter, only: [:index]
+	before_action :set_carpenter, only: [:index]
 
 	def index
 		@products = @carpenter.products.page(page[:page]).per(10)

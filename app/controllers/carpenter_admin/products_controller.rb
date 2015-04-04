@@ -1,7 +1,7 @@
 class CarpenterAdmin::ProductsController < CarpenterAdmin::ApplicationController
 	
-	before_filter :set_carpenter, only: [:index, :create, :update]
-	before_filter :set_product, only: [:show, :edit, :update]
+	before_action :set_carpenter, only: [:index, :create, :update]
+	before_action :set_product, only: [:show, :edit, :update]
 
 	def index
 		@products = @user.carpenter.products.page(params[:page]).per(10)
@@ -48,7 +48,8 @@ class CarpenterAdmin::ProductsController < CarpenterAdmin::ApplicationController
 
 	def product_params
 		params.require(:product).permit(:name,
-										:description)
+										:description,
+										:banner)
 	end
 
 end
